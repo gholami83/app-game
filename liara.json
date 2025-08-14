@@ -1,6 +1,5 @@
 {
   "type": "node",
   "port": 3000,
-  "buildCommand": "npm run build",
-  "startCommand": "npm start"
+  "startCommand": "node server.mjs"
 }
