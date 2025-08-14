@@ -1,0 +1,101 @@
+{
+  "games": [
+    {
+      "name": "پینگ پنگ",
+      "name_en": "Ping Pong",
+      "image": "ping_pong.webp",
+      "route": "/ping-pong"
+    },
+    {
+      "name": "نبرد مزرعه",
+      "name_en": "Farm Battle",
+      "image": "farm_war.png",
+      "route": "/farm-battle"
+    },
+    {
+      "name": "ماز سرعتی",
+      "name_en": "Speed Maze",
+      "image": "maze.png",
+      "route": "/speed-maze"
+    },
+    {
+      "name": "سوالات سرعتی و عمومی",
+      "name_en": "Speed & General Questions",
+      "image": "question.avif",
+      "route": "/quiz-game"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "users": [
+    {
+      "name": "علی محمدی",
+      "grade": "یک",
+      "games": [],
+      "phone": "09123456789",
+      "id": "c8e9"
+    },
+    {
+      "name": "فاطمه احمدی",
+      "grade": "دو",
+      "games": [],
+      "phone": "09129876543",
+      "id": "183c"
+    },
+    {
+      "name": "رضا کریمی",
+      "grade": "سه",
+      "games": [],
+      "phone": "09351234567",
+      "id": "9873"
+    },
+    {
+      "name": "زهرا حسینی",
+      "grade": "یک",
+      "games": [],
+      "phone": "09101112233",
+      "id": "8cb1"
+    },
+    {
+      "name": "امیر عباسی",
+      "grade": "دو",
+      "games": [],
+      "phone": "09011223344",
+      "id": "3a93"
+    },
+    {
+      "id": "6b13",
+      "name": "رضا عباسی",
+      "grade": "دو",
+      "games": [],
+      "phone": "09011223344"
+    },
+    {
+      "id": "99a3",
+      "name": "رضا عباسی",
+      "grade": "دو",
+      "games": [],
+      "phone": "09011223344"
+    }
+  ],
+  "scores": [
+    {
+      "id": "33c8",
+      "user_id": "c8e9",
+      "game_name": "Farm Battle",
+      "score": 50
+    }
+  ]
+}
