@@ -9,10 +9,10 @@ import { RouterModule } from '@angular/router';
   imports: [
     RouterModule
   ],
-  templateUrl: './scores.component.html',
-  styleUrl: './scores.component.scss'
+  templateUrl: './users.component.html',
+  styleUrl: './users.component.scss'
 })
-export class ScoresComponent {
+export class UsersComponent {
   users:any
   scores:any
   constructor(

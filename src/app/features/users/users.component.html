@@ -1,7 +1,7 @@
 <div class="p-5 flex flex-col gap-4">
     
-        <div routerLink="submit" class="w-full justify-center cursor-pointer flex md:w-1/5 ma-4 p-3 rounded-lg bg-blue-600 text-white">
-            اضافه کردن امتیاز
+        <div routerLink="create" class="w-full justify-center cursor-pointer flex md:w-1/5 ma-4 p-3 rounded-lg bg-blue-600 text-white">
+            اضافه کردن بازیکن
         </div>
 
 <div dir="rtl" class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -15,27 +15,21 @@
                     سطح
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    بازی
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    امتیاز
+                    شماره تلفن
                 </th>
             </tr>
         </thead>
         <tbody>
-            @for (item of scores; track $index) {
+            @for (item of users; track $index) {
             <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{getUser(item.user_id)?.name}}
+                    {{item?.name}}
                 </th>
                 <td class="px-6 py-4">
-                    {{getUser(item.user_id)?.grade}}
+                    {{item?.grade}}
                 </td>
                 <td class="px-6 py-4">
-                    {{item.game_name}}
-                </td>
-                <td class="px-6 py-4">
-                    {{item.score}}
+                    {{item.phone}}
                 </td>
             </tr>
             }

@@ -75,7 +75,11 @@
               "buildTarget": "app-game:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+            "options": {
+              "allowedHosts": ["app-game-gh.loca.lt", "188.229.22.223"],
+              "host": "0.0.0.0"
+            }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",

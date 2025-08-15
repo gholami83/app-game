@@ -1,0 +1,113 @@
+<div dir="rtl" *ngIf="!questionCreated && !questionSubmit" class="flex w-full justify-center p-5 items-center">
+    <a class="flex justify-center flex-col gap-5 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">سوالات عمومی و علمی</h5>
+        <p class="font-normal text-gray-700 dark:text-gray-400">زمان شما برای پاسخ گویی به سوالات ۱۲۰ ثانیه است!</p>
+        <div [formGroup]="formGroup" class="relative z-0 w-full mb-5 flex flex-col">
+            <div class="max-w-sm mx-auto">
+                <select required id="name" class="min-w-[200px] bg-gray-50 border border-gray-100 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:focus:ring-blue-500 text-white dark:focus:border-blue-500" formControlName="userId">
+                    <!-- <option selected>یک شخص را انتخاب کنید</option> -->
+                    @for (item of users; track $index) {
+                        <option [value]="item.id">{{item.name}}</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <p class="font-normal text-gray-700 dark:text-gray-400 text-xl self-center">آماده ای؟</p>
+          <button 
+            class="bg-blue-500 text-white p-2 rounded mt-4"
+            (click)="createQuestion()">
+            آماده‌ام شروع کن!
+        </button>
+    </a>
+</div>
+
+<div *ngIf="questionCreated && !questionSubmit" class="p-4">
+    <div *ngIf="randomQuizList" id="carousel-example" class="relative w-full">
+    <!-- Carousel wrapper -->
+    <div class="relative h-56 overflow-hidden rounded-lg sm:h-64 xl:h-80 2xl:h-96">
+        @for (item of randomQuizList; track item.id; let i = $index) {
+        <div [id]="'carousel-item-' + item.id" 
+            class="absolute inset-0 duration-700 ease-in-out transition-opacity"
+            [class.hidden]="i !== currentSlide"
+            [class.opacity-0]="i !== currentSlide"
+            [class.opacity-100]="i === currentSlide">
+            <app-test-card class="absolute left-1/2 top-1/2 block w-full -translate-x-1/2 -translate-y-1/2"
+                        [quiz]="item"
+                        [index]="i+1" 
+                        (answerSelected)="onAnswerSelected($event)">
+            </app-test-card>
+        </div>
+        }
+    </div>
+
+    <!-- Slider indicators -->
+    <div class="absolute bottom-0 left-1/2 z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse">
+        @for (item of randomQuizList; track item.id; let i = $index) {
+        <button
+            [id]="'carousel-indicator-' + (i + 1)"
+            type="button"
+            class="h-3 w-3 rounded-full"
+            [class.bg-blue-600]="i === currentSlide"
+            [class.bg-white]="i !== currentSlide"
+            [class.border]="i !== currentSlide"
+            [class.border-black]="i !== currentSlide"
+            [attr.aria-current]="i === currentSlide ? 'true' : 'false'"
+            [attr.aria-label]="'Slide ' + (i + 1)"
+            (click)="goToSlide(i)">
+        </button>
+        }
+    </div>
+
+    <!-- Slider controls -->
+    <button
+        id="data-carousel-prev"
+        type="button"
+        class="group absolute left-0 h-fit top-[330px] z-30 flex cursor-pointer items-center justify-center px-4 focus:outline-none"
+        (click)="prevSlide()">
+        <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:outline-none group-focus:ring-4 group-focus:ring-white dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70">
+        <svg class="h-4 w-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+        </svg>
+        <span class="hidden">Previous</span>
+        </span>
+    </button>
+
+    <button
+        id="data-carousel-next"
+        type="button"
+        class="group absolute right-0 h-fit top-[330px] z-30 flex cursor-pointer items-center justify-center px-4 focus:outline-none"
+        (click)="nextSlide()">
+        <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:outline-none group-focus:ring-4 group-focus:ring-white dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70">
+        <svg class="h-4 w-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+        </svg>
+        <span class="hidden">Next</span>
+        </span>
+    </button>
+    </div>
+
+
+
+  <button 
+    class="bg-blue-500 text-white p-2 px-6 rounded mt-10"
+    (click)="calculateScore()">
+    محاسبه نمره
+  </button>
+</div>
+
+<div dir="rtl" *ngIf="questionCreated && questionSubmit" class="flex w-full justify-center p-5 items-center">
+    <a (click)="createQuestion()" class="flex justify-center flex-col gap-5 w-full max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white self-center">
+            نمره شما: {{score}} از {{randomQuizList.length}}
+        </h5>
+        <p class="font-normal text-gray-700 dark:text-gray-400">امیدوارم نمره خوبی گرفته باشی!</p>
+        <p class="font-normal text-gray-700 dark:text-gray-400 text-xl self-center">
+            امتیاز شما: {{score*20}} از {{randomQuizList.length*20}}
+        </p>
+          <button routerLink="/" 
+            class="bg-blue-500 text-white p-2 rounded mt-4">
+            بازگشت به منو
+        </button>
+    </a>
+</div>
