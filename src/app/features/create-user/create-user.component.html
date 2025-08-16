@@ -1,9 +1,9 @@
 <div class="flex flex-col w-full p-6">
     <div class="flex w-full gap-4 p-10 border border-teal-400 rounded-3xl bg-teal-400/10">
         <div class="hidden md:block w-1/2">
-            <img class="rounded-xl" src="assets/images/farm_war.png" alt="">
+            <img class="rounded-xl aspect-square object-cover w-full" src="assets/images/farm_war.png" alt="">
         </div>
-        <form dir="rtl" [formGroup]="formgroup" class="w-full md:w-1/2 mx-auto flex flex-col">
+        <form dir="rtl" [formGroup]="formgroup" class="w-full md:w-1/2 mx-auto flex flex-col justify-center">
             <div class="relative z-0 w-full mb-5 group">
                 <input formControlName="name" type="text" name="floating_name" id="floating_name" class="block py-2.5 px-0 w-full text-base text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder="" required />
                 <label for="floating_name" class="peer-focus:font-medium absolute text-base text-gray-800 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">نام*</label>

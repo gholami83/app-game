@@ -4,21 +4,24 @@
       "name": "پینگ پنگ",
       "name_en": "Ping Pong",
       "image": "ping_pong.webp",
-      "route": "scores",
+      "route": "scores/submit",
+      "fragment": "ping_pong",
       "id": "b295"
     },
     {
       "name": "نبرد مزرعه",
       "name_en": "Farm Battle",
       "image": "farm_war.png",
-      "route": "scores",
+      "route": "scores/submit",
+      "fragment": "farm_battle",
       "id": "ed02"
     },
     {
       "name": "ماز سرعتی",
       "name_en": "Speed Maze",
       "image": "maze.png",
-      "route": "scores",
+      "route": "scores/submit",
+      "fragment": "speed_maze",
       "id": "5eeb"
     },
     {
@@ -71,32 +74,85 @@
       "grade": "سه",
       "phone": "۰۹۱۱۸۹۹۲۶۱۵",
       "games": []
+    },
+    {
+      "id": "4938",
+      "name": "حسین غلامی",
+      "grade": "سه",
+      "phone": "09906652919",
+      "games": []
     }
   ],
   "scores": [
     {
-      "id": "1fba",
-      "user_id": "d917",
-      "game_name": "Speed & General Questions",
-      "score": 240
-    },
-    {
-      "id": "6998",
-      "user_id": "d917",
+      "id": "aaa8",
+      "user_id": "a658",
       "game_name": "Farm Battle",
-      "score": 123
+      "score": 20
     },
     {
-      "id": "d7d0",
+      "id": "b066",
+      "game_name": "Farm Battle",
+      "score": 20
+    },
+    {
+      "id": "dac3",
+      "game_name": "Farm Battle",
+      "score": 10
+    },
+    {
+      "id": "d445",
+      "user_id": "[object Object]",
+      "game_name": "Ping Pong",
+      "score": 10
+    },
+    {
+      "id": "a58a",
+      "user_id": "1c81",
+      "game_name": "Farm Battle",
+      "score": 10
+    },
+    {
+      "id": "f123",
       "user_id": "a658",
       "game_name": "Speed & General Questions",
-      "score": 200
+      "score": 0
     },
     {
-      "id": "3bc0",
-      "user_id": "e64c",
+      "id": "0ab1",
+      "user_id": "a658",
       "game_name": "Speed & General Questions",
-      "score": 200
+      "score": 20
+    },
+    {
+      "id": "74a4",
+      "user_id": "a658",
+      "game_name": "Speed & General Questions",
+      "score": 0
+    },
+    {
+      "id": "adc7",
+      "user_id": "1c81",
+      "game_name": "Speed & General Questions",
+      "score": 20
+    },
+    {
+      "id": "6d02",
+      "user_id": "a658",
+      "game_name": "Speed Maze",
+      "score": 222
+    },
+    {
+      "id": "5b75",
+      "user_id": "4938",
+      "game_name": "Speed & General Questions",
+      "score": 60
+    },
+    {
+      "id": "babe",
+      "user_id": "d917",
+      "game_name": "Speed & General Questions",
+      "score": 120
     }
   ]
 }

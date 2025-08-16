@@ -3,7 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RequestsService } from '../../services/requests.service';
 import { SharedModule } from '../../shared/shared.module';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-submit-score',
@@ -19,10 +19,14 @@ export class SubmitScoreComponent {
   formgroup!:FormGroup
   users:any
   games:any
+  gameType:'ping_pong' | 'farm_battle' | 'speed_maze' = 'ping_pong'
+  defualtImage = 'business-analytics-vector-concept-illustration_92926-80.avif'
+  game:any
   constructor(
     private request:RequestsService,
     private toastr: ToastrService,
-    private router:Router
+    private router:Router,
+    private activatedRouter:ActivatedRoute,
   ){}
   
   ngOnInit(): void {
@@ -35,6 +39,21 @@ export class SubmitScoreComponent {
       score: new FormControl(),
     })
   }
+  getGame(){
+    this.activatedRouter.queryParams.subscribe(
+      (res:any)=>{
+        if(Object.keys(res).length !== 0){
+          this.gameType = res.g
+          this.game = this.games?.find((m:any)=>m.fragment == this.gameType)
+          this.formgroup.controls['game'].setValue(this.game?.name_en)
+        }
+        else{
+        }
+      },
+      (err)=>{
+      }
+    )
+  }
   getUsers(){
    this.request.getUsers().subscribe(
     (res)=>this.users = res
@@ -42,7 +61,10 @@ export class SubmitScoreComponent {
   }
   getGames(){
    this.request.getgames().subscribe(
-    (res)=>this.games = res
+    (res)=>{
+      this.games = res
+      this.getGame()
+    }
    )
   }
   submit(){
@@ -52,7 +74,7 @@ export class SubmitScoreComponent {
       "game_name":this.formgroup.value.game,
       "score":this.formgroup.value.score
     }).subscribe((res)=>{
-      this.toastr.success(`${res.name} عزیز`,'امتیازت ثبت شد!')
+      this.toastr.success('','امتیازت ثبت شد!')
       this.router.navigate(['/scores'])
     })
     else{
